@@ -46,7 +46,7 @@ steps:
 - script: |
     find . -name "*.jar"
     ls -rlt
-    Pipeline.Workspace = $(Pipeline.Workspace)
+    echo "Pipeline.Workspace = $(Pipeline.Workspace)"
   displayName: 'Run a multi-line script'    
 - task: PublishPipelineArtifact@1
   inputs:

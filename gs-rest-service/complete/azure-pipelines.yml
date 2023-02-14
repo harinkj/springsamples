@@ -28,7 +28,7 @@ steps:
 
 - task: Maven@4
   inputs:
-    mavenPomFile: './gs-rest-service/complete/pom.xml'
+    mavenPomFile: '$(Pipeline.Workspace)/gs-rest-service/complete/pom.xml'
     goals: 'clean package'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'

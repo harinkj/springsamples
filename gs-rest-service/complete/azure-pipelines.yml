@@ -28,7 +28,7 @@ steps:
 
 - task: Maven@4
   inputs:
-    mavenPomFile: '$(Pipeline.Workspace)/gs-rest-service/complete/pom.xml'
+    mavenPomFile: './gs-rest-service/complete/pom.xml'
     goals: 'clean package'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
@@ -45,11 +45,12 @@ steps:
     spotBugsRunAnalysis: false
 - script: |
     find . -name "*.jar"
+    pwd
     ls -rlt
     echo "Pipeline.Workspace = $(Pipeline.Workspace)"
   displayName: 'Run a multi-line script'    
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/gs-rest-service/complete/target/'
+    targetPath: './gs-rest-service/complete/target/'
     artifact: 'rest-service-complete-0.0.1-SNAPSHOT.jar'
     publishLocation: 'pipeline'

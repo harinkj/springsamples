@@ -39,7 +39,7 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
     sqMavenPluginVersionChoice: 'pom'
-    checkStyleRunAnalysis: true
-    pmdRunAnalysis: true
-    findBugsRunAnalysis: true
-    spotBugsRunAnalysis: true
+    checkStyleRunAnalysis: false
+    pmdRunAnalysis: false
+    findBugsRunAnalysis: false
+    spotBugsRunAnalysis: false

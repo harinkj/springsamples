@@ -43,6 +43,10 @@ steps:
     pmdRunAnalysis: false
     findBugsRunAnalysis: false
     spotBugsRunAnalysis: false
+- script: |
+    find . -name "*.jar"
+    ls -rlt
+  displayName: 'Run a multi-line script'    
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'

@@ -50,6 +50,6 @@ steps:
   displayName: 'Run a multi-line script'    
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/complete/target/'
+    targetPath: '$(Pipeline.Workspace)/gs-rest-service/complete/target/'
     artifact: 'rest-service-complete-0.0.1-SNAPSHOT.jar'
     publishLocation: 'pipeline'

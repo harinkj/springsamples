@@ -46,9 +46,10 @@ steps:
 - script: |
     find . -name "*.jar"
     ls -rlt
+    Pipeline.Workspace = $(Pipeline.Workspace)
   displayName: 'Run a multi-line script'    
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: './gs-rest-service/complete/target/rest-service-complete-0.0.1-SNAPSHOT.jar'
+    targetPath: '$(Pipeline.Workspace)/complete/target/'
+    artifact: 'rest-service-complete-0.0.1-SNAPSHOT.jar'
     publishLocation: 'pipeline'

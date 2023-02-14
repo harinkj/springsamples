@@ -16,6 +16,8 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     find . -name "pom.xml"
+    javac -version
+    java -version
   displayName: 'Run a multi-line script'
 
 - task: Maven@4

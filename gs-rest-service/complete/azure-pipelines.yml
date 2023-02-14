@@ -43,3 +43,8 @@ steps:
     pmdRunAnalysis: false
     findBugsRunAnalysis: false
     spotBugsRunAnalysis: false
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'target/gs-rest-service-0.1.0.jar'
+    publishLocation: 'pipeline'

@@ -50,7 +50,6 @@ jobs:
       ls -rlt
       echo "Pipeline.Workspace = $(Pipeline.Workspace)"
     displayName: 'Run a multi-line script'    
-- job: publish
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: './gs-rest-service/complete/target/'

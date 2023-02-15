@@ -58,6 +58,11 @@ stages:
         artifact: 'rest-service-complete-0.0.1-SNAPSHOT.jar'
         publishLocation: 'pipeline'
 - stage: deployment
+  jobs:
+  - job: start
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line script'
   - deployment: VMDeploy
     displayName: Deploy to DEV environment
     environment: 

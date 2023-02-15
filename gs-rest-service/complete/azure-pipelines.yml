@@ -8,49 +8,52 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+jobs:
+- job: build
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
 
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '17'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
-    
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    find . -name "pom.xml"
-    javac -version
-    java -version
-  displayName: 'Run a multi-line script'
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      find . -name "pom.xml"
+      javac -version
+      java -version
+    displayName: 'Run a multi-line script'
 
-- task: Maven@4
-  inputs:
-    mavenPomFile: './gs-rest-service/complete/pom.xml'
-    goals: 'clean package'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-    sqMavenPluginVersionChoice: 'pom'
-    checkStyleRunAnalysis: false
-    pmdRunAnalysis: false
-    findBugsRunAnalysis: false
-    spotBugsRunAnalysis: false
-- script: |
-    find . -name "*.jar"
-    pwd
-    ls -rlt
-    echo "Pipeline.Workspace = $(Pipeline.Workspace)"
-  displayName: 'Run a multi-line script'    
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: './gs-rest-service/complete/target/'
-    artifact: 'rest-service-complete-0.0.1-SNAPSHOT.jar'
-    publishLocation: 'pipeline'
+  - task: Maven@4
+    inputs:
+      mavenPomFile: './gs-rest-service/complete/pom.xml'
+      goals: 'clean package'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.17'
+      mavenVersionOption: 'Default'
+      mavenAuthenticateFeed: false
+      effectivePomSkip: false
+      sonarQubeRunAnalysis: false
+      sqMavenPluginVersionChoice: 'pom'
+      checkStyleRunAnalysis: false
+      pmdRunAnalysis: false
+      findBugsRunAnalysis: false
+      spotBugsRunAnalysis: false
+  - script: |
+      find . -name "*.jar"
+      pwd
+      ls -rlt
+      echo "Pipeline.Workspace = $(Pipeline.Workspace)"
+    displayName: 'Run a multi-line script'    
+jobs:
+- job: publish
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: './gs-rest-service/complete/target/'
+      artifact: 'rest-service-complete-0.0.1-SNAPSHOT.jar'
+      publishLocation: 'pipeline'

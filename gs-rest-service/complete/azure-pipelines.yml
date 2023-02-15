@@ -18,7 +18,7 @@ stages:
 
     - task: JavaToolInstaller@0
       inputs:
-        versionSpec: '17'
+        versionSpec: '13'
         jdkArchitectureOption: 'x64'
         jdkSourceOption: 'PreInstalled'
 
@@ -36,7 +36,7 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.17'
+        jdkVersionOption: '1.13'
         mavenVersionOption: 'Default'
         mavenAuthenticateFeed: false
         effectivePomSkip: false

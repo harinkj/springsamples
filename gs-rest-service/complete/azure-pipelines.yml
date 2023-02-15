@@ -18,7 +18,7 @@ stages:
 
     - task: JavaToolInstaller@0
       inputs:
-        versionSpec: '13'
+        versionSpec: '17'
         jdkArchitectureOption: 'x64'
         jdkSourceOption: 'PreInstalled'
 
@@ -36,7 +36,7 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.13'
+        jdkVersionOption: '1.17'
         mavenVersionOption: 'Default'
         mavenAuthenticateFeed: false
         effectivePomSkip: false
@@ -77,4 +77,4 @@ stages:
                   pwd
                   ls -rlt
                   java -version
-                  java -jar  /home/azureuser/azagent/_work/1/rest-service-complete-0.0.1-SNAPSHOT.jar
+                  /home/azureuser/azagent/jdk-17/bin/java -jar  /home/azureuser/azagent/_work/1/rest-service-complete-0.0.1-SNAPSHOT.jar/rest-service-complete-0.0.1-SNAPSHOT.jar

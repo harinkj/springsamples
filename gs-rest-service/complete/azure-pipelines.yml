@@ -50,7 +50,6 @@ jobs:
       ls -rlt
       echo "Pipeline.Workspace = $(Pipeline.Workspace)"
     displayName: 'Run a multi-line script'    
-jobs:
 - job: publish
   - task: PublishPipelineArtifact@1
     inputs:

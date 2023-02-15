@@ -14,8 +14,8 @@
 	<name>rest-service-complete</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-	    <maven.compiler.source>13</maven.compiler.source>
-	    <maven.compiler.target>13</maven.compiler.target>
+	    <maven.compiler.source>17</maven.compiler.source>
+	    <maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
